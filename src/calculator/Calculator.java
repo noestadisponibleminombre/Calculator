@@ -1,29 +1,30 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package calculator;
 
-/**
- *
- * @author edangulo
- */
 public class Calculator {
-    
+    private OperationFactory operationFactory;
+
+    public Calculator(OperationFactory operationFactory) {
+        this.operationFactory = operationFactory;
+    }
+
     public double add(double a, double b) {
-        return a + b;
+        return operationFactory.getOperation("Addition").execute(a, b);
     }
-    
+
     public double subtract(double a, double b) {
-        return a - b;
+        return operationFactory.getOperation("Subtraction").execute(a, b);
     }
-    
+
     public double multiply(double a, double b) {
-        return a * b;
+        return operationFactory.getOperation("Multiplication").execute(a, b);
     }
-    
+
     public double divide(double a, double b) {
-        return a / b;
+        return operationFactory.getOperation("Division").execute(a, b);
     }
-    
+
+    public double power(double a, double b) {
+        return operationFactory.getOperation("Power").execute(a, b);
+    }
 }
